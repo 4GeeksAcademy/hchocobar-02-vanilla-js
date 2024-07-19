@@ -34,6 +34,7 @@ const users = [
     "name": "Leanne Graham",
     "username": "Bret",
     "email": "Sincere@april.biz",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Kulas Light",
       "suite": "Apt. 556",
@@ -57,6 +58,7 @@ const users = [
     "name": "Ervin Howell",
     "username": "Antonette",
     "email": "Shanna@melissa.tv",
+    'sports': ['soccer', 'tennis'],
     "address": {
       "street": "Victor Plains",
       "suite": "Suite 879",
@@ -80,6 +82,7 @@ const users = [
     "name": "Clementine Bauch",
     "username": "Samantha",
     "email": "Nathan@yesenia.net",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Douglas Extension",
       "suite": "Suite 847",
@@ -103,6 +106,7 @@ const users = [
     "name": "Patricia Lebsack",
     "username": "Karianne",
     "email": "Julianne.OConner@kory.org",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Hoeger Mall",
       "suite": "Apt. 692",
@@ -126,6 +130,7 @@ const users = [
     "name": "Chelsey Dietrich",
     "username": "Kamren",
     "email": "Lucio_Hettinger@annie.ca",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Skiles Walks",
       "suite": "Suite 351",
@@ -149,6 +154,7 @@ const users = [
     "name": "Mrs. Dennis Schulist",
     "username": "Leopoldo_Corkery",
     "email": "Karley_Dach@jasper.info",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Norberto Crossing",
       "suite": "Apt. 950",
@@ -172,6 +178,7 @@ const users = [
     "name": "Kurtis Weissnat",
     "username": "Elwyn.Skiles",
     "email": "Telly.Hoeger@billy.biz",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Rex Trail",
       "suite": "Suite 280",
@@ -195,6 +202,7 @@ const users = [
     "name": "Nicholas Runolfsdottir V",
     "username": "Maxime_Nienow",
     "email": "Sherwood@rosamond.me",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Ellsworth Summit",
       "suite": "Suite 729",
@@ -218,6 +226,7 @@ const users = [
     "name": "Glenna Reichert",
     "username": "Delphine",
     "email": "Chaim_McDermott@dana.io",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Dayna Park",
       "suite": "Suite 449",
@@ -241,6 +250,7 @@ const users = [
     "name": "Clementina DuBuque",
     "username": "Moriah.Stanton",
     "email": "Rey.Padberg@karina.biz",
+    'sports': ['soccer', 'tennis', 'golf'],
     "address": {
       "street": "Kattie Turnpike",
       "suite": "Suite 198",
@@ -261,6 +271,64 @@ const users = [
   }
 ]
 
+const palos = ['♦', '♥', '♠', '♣']
+const cartas = ['A', '2' , '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+const exampleHTML = document.querySelector('#example')
+
+let barajas = []
+/* console.log(typeof(barajas));
+for (const i in palos) {
+    const element = palos[i];
+    for (const j in cartas) {
+        const item = cartas[j];
+        barajas.push(element + item)
+        
+    }    
+    // console.log(element);
+}
+ */
+
+/* for (const iterator of cartas) {
+  for (const item of palos) {
+    barajas.push(iterator + ' ' + item)
+  }
+} */
+
+barajas = cartas.map( iterator => palos.map( item => iterator + ' ' + item) )
+
+console.log(barajas);
+
+exampleHTML.innerHTML = 'hola'
+
+
+let sports = ''
+users.map( item => {
+  sports += `
+    <div class="card mb-3 text-start">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://randomuser.me/api/portraits/women/${item.id + 10}.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <p class="card-text">${item.email}</p>
+            <ul class="list-group">
+              ${item.sports.map( (element) => {
+                return `<li class="list-group-item">${element}</li>`
+              })}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+} )
+
+const bucleAnidados = document.querySelector('#anidados');
+bucleAnidados.innerHTML = sports;
+
 let lista = '';
 users.map( ( item ) => {
     /* lista += '<li>' + item.name + '</li>' */
@@ -277,7 +345,7 @@ listHTML.innerHTML = lista
 let tarjeta = '';
 users.map( item => {
   tarjeta += `
-    <div class="card" style="width: 18rem;">
+    <div class="card border-0">
       <img src="https://randomuser.me/api/portraits/women/${item.id}.jpg" class="card-img-top" alt=${item.name}>
       <div class="card-body">
         <h5 class="card-title">${item.name}</h5>
@@ -295,5 +363,5 @@ const cardHTML = document.querySelector('#card-user');
 cardHTML.innerHTML = tarjeta
 
 
-console.log(users);
+// console.log(users);
 };
