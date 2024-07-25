@@ -6,362 +6,94 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  /* Ejemplos de Funciones Comunes, Anónimas y Flechas */
-  function saludo() { return 'Hola Mundo!';};
-  const hello = function () { return "Hello World!";}
-  /* const mensaje = () => return { return 'Este es el mensaje de la arrow function'} */
-  /* const mensaje = () => 'Este es el mensaje de la arrow function sin return' */
-  /* const mensaje = (name) => 'Este es el mensaje de la arrow function sin return para: ' + name */
-  const mensaje = name => 'Este es el mensaje de la arrow function sin return para: ' + name
-  const message = (name) => {
-    const output = 'Este es el mensaje es para: ' + name
-    return output;
-  }
-
-  // invocamos la función
-  /* 
-  console.log(saludo());
-  console.log(hello());
-  console.log(mensaje('Manuel'))
-  console.log(message('Marina'));
-  console.log(message('Alejandro'));
-  console.log(message('Kleiner')); 
-  */
-
-const users = [
-  {
-    "id": 1,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Kulas Light",
-      "suite": "Apt. 556",
-      "city": "Gwenborough",
-      "zipcode": "92998-3874",
-      "geo": {
-        "lat": "-37.3159",
-        "lng": "81.1496"
-      }
+  const rockStars = [
+    {
+      "name": "Jhon",
+      "id": 1,
+      "title": "delectus aut autem",
+      "completed": false
     },
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
-    "company": {
-      "name": "Romaguera-Crona",
-      "catchPhrase": "Multi-layered client-server neural-net",
-      "bs": "harness real-time e-markets"
-    }
-  },
-  {
-    "id": 2,
-    "name": "Ervin Howell",
-    "username": "Antonette",
-    "email": "Shanna@melissa.tv",
-    'sports': ['soccer', 'tennis'],
-    "address": {
-      "street": "Victor Plains",
-      "suite": "Suite 879",
-      "city": "Wisokyburgh",
-      "zipcode": "90566-7771",
-      "geo": {
-        "lat": "-43.9509",
-        "lng": "-34.4618"
-      }
+    {
+      "name": "Ringo",
+      "id": 2,
+      "title": "quis ut nam facilis et officia qui",
+      "completed": false
     },
-    "phone": "010-692-6593 x09125",
-    "website": "anastasia.net",
-    "company": {
-      "name": "Deckow-Crist",
-      "catchPhrase": "Proactive didactic contingency",
-      "bs": "synergize scalable supply-chains"
-    }
-  },
-  {
-    "id": 3,
-    "name": "Clementine Bauch",
-    "username": "Samantha",
-    "email": "Nathan@yesenia.net",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Douglas Extension",
-      "suite": "Suite 847",
-      "city": "McKenziehaven",
-      "zipcode": "59590-4157",
-      "geo": {
-        "lat": "-68.6102",
-        "lng": "-47.0653"
-      }
+    {
+      "name": "George",
+      "id": 3,
+      "title": "fugiat veniam minus",
+      "completed": false
     },
-    "phone": "1-463-123-4447",
-    "website": "ramiro.info",
-    "company": {
-      "name": "Romaguera-Jacobson",
-      "catchPhrase": "Face to face bifurcated interface",
-      "bs": "e-enable strategic applications"
-    }
-  },
-  {
-    "id": 4,
-    "name": "Patricia Lebsack",
-    "username": "Karianne",
-    "email": "Julianne.OConner@kory.org",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Hoeger Mall",
-      "suite": "Apt. 692",
-      "city": "South Elvis",
-      "zipcode": "53919-4257",
-      "geo": {
-        "lat": "29.4572",
-        "lng": "-164.2990"
-      }
+    {
+      "name": "George",
+      "id": 4,
+      "title": "et porro tempora",
+      "completed": true
     },
-    "phone": "493-170-9623 x156",
-    "website": "kale.biz",
-    "company": {
-      "name": "Robel-Corkery",
-      "catchPhrase": "Multi-tiered zero tolerance productivity",
-      "bs": "transition cutting-edge web services"
-    }
-  },
-  {
-    "id": 5,
-    "name": "Chelsey Dietrich",
-    "username": "Kamren",
-    "email": "Lucio_Hettinger@annie.ca",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Skiles Walks",
-      "suite": "Suite 351",
-      "city": "Roscoeview",
-      "zipcode": "33263",
-      "geo": {
-        "lat": "-31.8129",
-        "lng": "62.5342"
-      }
+    {
+      "name": "Jhon",
+      "id": 5,
+      "title": "laboriosam mollitia et enim quasi",
+      "completed": false
     },
-    "phone": "(254)954-1289",
-    "website": "demarco.info",
-    "company": {
-      "name": "Keebler LLC",
-      "catchPhrase": "User-centric fault-tolerant solution",
-      "bs": "revolutionize end-to-end systems"
-    }
-  },
-  {
-    "id": 6,
-    "name": "Mrs. Dennis Schulist",
-    "username": "Leopoldo_Corkery",
-    "email": "Karley_Dach@jasper.info",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Norberto Crossing",
-      "suite": "Apt. 950",
-      "city": "South Christy",
-      "zipcode": "23505-1337",
-      "geo": {
-        "lat": "-71.4197",
-        "lng": "71.7478"
-      }
+    {
+      "name": "Paul",
+      "id": 6,
+      "title": "qui ullam ratione quibusdam",
+      "completed": false
     },
-    "phone": "1-477-935-8478 x6430",
-    "website": "ola.org",
-    "company": {
-      "name": "Considine-Lockman",
-      "catchPhrase": "Synchronised bottom-line interface",
-      "bs": "e-enable innovative applications"
-    }
-  },
-  {
-    "id": 7,
-    "name": "Kurtis Weissnat",
-    "username": "Elwyn.Skiles",
-    "email": "Telly.Hoeger@billy.biz",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Rex Trail",
-      "suite": "Suite 280",
-      "city": "Howemouth",
-      "zipcode": "58804-1099",
-      "geo": {
-        "lat": "24.8918",
-        "lng": "21.8984"
-      }
+    {
+      "name": "Ringo",
+      "id": 7,
+      "title": "illo expedita consequatur quia in",
+      "completed": false
     },
-    "phone": "210.067.6132",
-    "website": "elvis.io",
-    "company": {
-      "name": "Johns Group",
-      "catchPhrase": "Configurable multimedia task-force",
-      "bs": "generate enterprise e-tailers"
-    }
-  },
-  {
-    "id": 8,
-    "name": "Nicholas Runolfsdottir V",
-    "username": "Maxime_Nienow",
-    "email": "Sherwood@rosamond.me",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Ellsworth Summit",
-      "suite": "Suite 729",
-      "city": "Aliyaview",
-      "zipcode": "45169",
-      "geo": {
-        "lat": "-14.3990",
-        "lng": "-120.7677"
-      }
+    {
+      "name": "Paul",
+      "id": 8,
+      "title": "quo adipisci enim quam ut ab",
+      "completed": true
     },
-    "phone": "586.493.6943 x140",
-    "website": "jacynthe.com",
-    "company": {
-      "name": "Abernathy Group",
-      "catchPhrase": "Implemented secondary concept",
-      "bs": "e-enable extensible e-tailers"
-    }
-  },
-  {
-    "id": 9,
-    "name": "Glenna Reichert",
-    "username": "Delphine",
-    "email": "Chaim_McDermott@dana.io",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Dayna Park",
-      "suite": "Suite 449",
-      "city": "Bartholomebury",
-      "zipcode": "76495-3109",
-      "geo": {
-        "lat": "24.6463",
-        "lng": "-168.8889"
-      }
+    {
+      "name": "Jhon",
+      "id": 9,
+      "title": "molestiae perspiciatis ipsa",
+      "completed": false
     },
-    "phone": "(775)976-6794 x41206",
-    "website": "conrad.com",
-    "company": {
-      "name": "Yost and Sons",
-      "catchPhrase": "Switchable contextually-based project",
-      "bs": "aggregate real-time technologies"
-    }
-  },
-  {
-    "id": 10,
-    "name": "Clementina DuBuque",
-    "username": "Moriah.Stanton",
-    "email": "Rey.Padberg@karina.biz",
-    'sports': ['soccer', 'tennis', 'golf'],
-    "address": {
-      "street": "Kattie Turnpike",
-      "suite": "Suite 198",
-      "city": "Lebsackbury",
-      "zipcode": "31428-2261",
-      "geo": {
-        "lat": "-38.2386",
-        "lng": "57.2232"
-      }
+    {
+      "name": "George",
+      "id": 10,
+      "title": "illo est ratione doloremque quia",
+      "completed": true
     },
-    "phone": "024-648-3804",
-    "website": "ambrose.net",
-    "company": {
-      "name": "Hoeger LLC",
-      "catchPhrase": "Centralized empowering task-force",
-      "bs": "target end-to-end models"
-    }
-  }
-]
+  ];
 
-const palos = ['♦', '♥', '♠', '♣']
-const cartas = ['A', '2' , '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-const exampleHTML = document.querySelector('#example')
-
-let barajas = []
-/* console.log(typeof(barajas));
-for (const i in palos) {
-    const element = palos[i];
-    for (const j in cartas) {
-        const item = cartas[j];
-        barajas.push(element + item)
-        
-    }    
-    // console.log(element);
-}
- */
-
-/* for (const iterator of cartas) {
-  for (const item of palos) {
-    barajas.push(iterator + ' ' + item)
-  }
-} */
-
-barajas = cartas.map( iterator => palos.map( item => iterator + ' ' + item) )
-
-console.log(barajas);
-
-exampleHTML.innerHTML = 'hola'
-
-
-let sports = ''
-users.map( item => {
-  sports += `
-    <div class="card mb-3 text-start">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="https://randomuser.me/api/portraits/women/${item.id + 10}.jpg" class="img-fluid rounded-start" alt="...">
+  // Defino una variable para acumular cada iteracion del array
+  let listHTML = ''
+  // Renderizar todos elementos de la rockStars, cada uno en un li
+  // Sintaxis: condición ? expr1xVerdadero : expr2xFalso
+  rockStars.map((item) => {
+    listHTML += `
+      <li key=${item.id} class="list-group-item d-flex justify-content-between">
+        <div>${item.name} - ${item.title}</div>
+        <div>
+          ${item.completed ? `
+              <span class="mx-1"><i class="far fa-check-circle text-success"></i></span>
+            ` : `
+              <span class="mx-1"><i class="far fa-times-circle text-danger"></i></span>
+            `}
+          <span class="mx-1"><i class="fas fa-trash-alt text-danger"></i></span>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">${item.name}</h5>
-            <p class="card-text">${item.email}</p>
-            <ul class="list-group">
-              ${item.sports.map( (element) => {
-                return `<li class="list-group-item">${element}</li>`
-              })}
+      </li>
+    `
+  })
 
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  `
-} )
+  // Rendizar la lista en el html
+  // 1. Capturar el elemento html
+  // 2. Cambiar el contenido (innnerHTML)
+  const listStart = document.querySelector('#artist')
+  listStart.innerHTML = listHTML;
 
-const bucleAnidados = document.querySelector('#anidados');
-bucleAnidados.innerHTML = sports;
-
-let lista = '';
-users.map( ( item ) => {
-    /* lista += '<li>' + item.name + '</li>' */
-    lista += `
-      <li class="list-group-item">
-        nombre: ${item.name} - email: ${item.email}
-      </li>`
-  }
-)
-const listHTML = document.querySelector('#user');
-listHTML.innerHTML = lista
-
-
-let tarjeta = '';
-users.map( item => {
-  tarjeta += `
-    <div class="card border-0">
-      <img src="https://randomuser.me/api/portraits/women/${item.id}.jpg" class="card-img-top" alt=${item.name}>
-      <div class="card-body">
-        <h5 class="card-title">${item.name}</h5>
-        <p class="card-text">Email: ${item.email}</p>
-        <p class="card-text">Username: ${item.username}</p>
-        <p class="card-text">Phone: ${item.phone}</p>
-        <p class="card-text">Website: ${item.website}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  `
-})
-
-const cardHTML = document.querySelector('#card-user');
-cardHTML.innerHTML = tarjeta
-
-
-// console.log(users);
+  // console.log(rockStars);
 };
