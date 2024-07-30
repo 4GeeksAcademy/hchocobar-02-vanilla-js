@@ -1,103 +1,303 @@
 /* eslint-disable */
 import "bootstrap";
 import "./style.css";
-
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 
 window.onload = function() {
-  const send = () => {
-    console.log('enviando');
-  }
-  const rockStars = [
-    {
-      "name": "Jhon",
-      "id": 1,
-      "title": "delectus aut autem",
-      "completed": false
-    },
-    {
-      "name": "Ringo",
-      "id": 2,
-      "title": "quis ut nam facilis et officia qui",
-      "completed": false
-    },
-    {
-      "name": "George",
-      "id": 3,
-      "title": "fugiat veniam minus",
-      "completed": false
-    },
-    {
-      "name": "George",
-      "id": 4,
-      "title": "et porro tempora",
-      "completed": true
-    },
-    {
-      "name": "Jhon",
-      "id": 5,
-      "title": "laboriosam mollitia et enim quasi",
-      "completed": false
-    },
-    {
-      "name": "Paul",
-      "id": 6,
-      "title": "qui ullam ratione quibusdam",
-      "completed": false
-    },
-    {
-      "name": "Ringo",
-      "id": 7,
-      "title": "illo expedita consequatur quia in",
-      "completed": false
-    },
-    {
-      "name": "Paul",
-      "id": 8,
-      "title": "quo adipisci enim quam ut ab",
-      "completed": true
-    },
-    {
-      "name": "Jhon",
-      "id": 9,
-      "title": "molestiae perspiciatis ipsa",
-      "completed": false
-    },
-    {
-      "name": "George",
-      "id": 10,
-      "title": "illo est ratione doloremque quia",
-      "completed": true
-    },
-  ];
+	let characters =  [
+		{
+			"name": "Luke Skywalker",
+			"height": "172",
+			"mass": "77",
+			"hair_color": "blond",
+			"skin_color": "fair",
+			"eye_color": "blue",
+			"birth_year": "19BBY",
+			"gender": "male",
+			"homeworld": "https://swapi.dev/api/planets/1/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/2/",
+				"https://swapi.dev/api/films/3/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [],
+			"vehicles": [
+				"https://swapi.dev/api/vehicles/14/",
+				"https://swapi.dev/api/vehicles/30/"
+			],
+			"starships": [
+				"https://swapi.dev/api/starships/12/",
+				"https://swapi.dev/api/starships/22/"
+			],
+			"created": "2014-12-09T13:50:51.644000Z",
+			"edited": "2014-12-20T21:17:56.891000Z",
+			"url": "https://swapi.dev/api/people/1/"
+		},
+		{
+			"name": "C-3PO",
+			"height": "167",
+			"mass": "75",
+			"hair_color": "n/a",
+			"skin_color": "gold",
+			"eye_color": "yellow",
+			"birth_year": "112BBY",
+			"gender": "n/a",
+			"homeworld": "https://swapi.dev/api/planets/1/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/2/",
+				"https://swapi.dev/api/films/3/",
+				"https://swapi.dev/api/films/4/",
+				"https://swapi.dev/api/films/5/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [
+				"https://swapi.dev/api/species/2/"
+			],
+			"vehicles": [],
+			"starships": [],
+			"created": "2014-12-10T15:10:51.357000Z",
+			"edited": "2014-12-20T21:17:50.309000Z",
+			"url": "https://swapi.dev/api/people/2/"
+		},
+		{
+			"name": "R2-D2",
+			"height": "96",
+			"mass": "32",
+			"hair_color": "n/a",
+			"skin_color": "white, blue",
+			"eye_color": "red",
+			"birth_year": "33BBY",
+			"gender": "n/a",
+			"homeworld": "https://swapi.dev/api/planets/8/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/2/",
+				"https://swapi.dev/api/films/3/",
+				"https://swapi.dev/api/films/4/",
+				"https://swapi.dev/api/films/5/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [
+				"https://swapi.dev/api/species/2/"
+			],
+			"vehicles": [],
+			"starships": [],
+			"created": "2014-12-10T15:11:50.376000Z",
+			"edited": "2014-12-20T21:17:50.311000Z",
+			"url": "https://swapi.dev/api/people/3/"
+		},
+		{
+			"name": "Darth Vader",
+			"height": "202",
+			"mass": "136",
+			"hair_color": "none",
+			"skin_color": "white",
+			"eye_color": "yellow",
+			"birth_year": "41.9BBY",
+			"gender": "male",
+			"homeworld": "https://swapi.dev/api/planets/1/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/2/",
+				"https://swapi.dev/api/films/3/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [],
+			"vehicles": [],
+			"starships": [
+				"https://swapi.dev/api/starships/13/"
+			],
+			"created": "2014-12-10T15:18:20.704000Z",
+			"edited": "2014-12-20T21:17:50.313000Z",
+			"url": "https://swapi.dev/api/people/4/"
+		},
+		{
+			"name": "Leia Organa",
+			"height": "150",
+			"mass": "49",
+			"hair_color": "brown",
+			"skin_color": "light",
+			"eye_color": "brown",
+			"birth_year": "19BBY",
+			"gender": "female",
+			"homeworld": "https://swapi.dev/api/planets/2/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/2/",
+				"https://swapi.dev/api/films/3/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [],
+			"vehicles": [
+				"https://swapi.dev/api/vehicles/30/"
+			],
+			"starships": [],
+			"created": "2014-12-10T15:20:09.791000Z",
+			"edited": "2014-12-20T21:17:50.315000Z",
+			"url": "https://swapi.dev/api/people/5/"
+		},
+		{
+			"name": "Owen Lars",
+			"height": "178",
+			"mass": "120",
+			"hair_color": "brown, grey",
+			"skin_color": "light",
+			"eye_color": "blue",
+			"birth_year": "52BBY",
+			"gender": "male",
+			"homeworld": "https://swapi.dev/api/planets/1/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/5/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [],
+			"vehicles": [],
+			"starships": [],
+			"created": "2014-12-10T15:52:14.024000Z",
+			"edited": "2014-12-20T21:17:50.317000Z",
+			"url": "https://swapi.dev/api/people/6/"
+		},
+		{
+			"name": "Beru Whitesun lars",
+			"height": "165",
+			"mass": "75",
+			"hair_color": "brown",
+			"skin_color": "light",
+			"eye_color": "blue",
+			"birth_year": "47BBY",
+			"gender": "female",
+			"homeworld": "https://swapi.dev/api/planets/1/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/5/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [],
+			"vehicles": [],
+			"starships": [],
+			"created": "2014-12-10T15:53:41.121000Z",
+			"edited": "2014-12-20T21:17:50.319000Z",
+			"url": "https://swapi.dev/api/people/7/"
+		},
+		{
+			"name": "R5-D4",
+			"height": "97",
+			"mass": "32",
+			"hair_color": "n/a",
+			"skin_color": "white, red",
+			"eye_color": "red",
+			"birth_year": "unknown",
+			"gender": "n/a",
+			"homeworld": "https://swapi.dev/api/planets/1/",
+			"films": [
+				"https://swapi.dev/api/films/1/"
+			],
+			"species": [
+				"https://swapi.dev/api/species/2/"
+			],
+			"vehicles": [],
+			"starships": [],
+			"created": "2014-12-10T15:57:50.959000Z",
+			"edited": "2014-12-20T21:17:50.321000Z",
+			"url": "https://swapi.dev/api/people/8/"
+		},
+		{
+			"name": "Biggs Darklighter",
+			"height": "183",
+			"mass": "84",
+			"hair_color": "black",
+			"skin_color": "light",
+			"eye_color": "brown",
+			"birth_year": "24BBY",
+			"gender": "male",
+			"homeworld": "https://swapi.dev/api/planets/1/",
+			"films": [
+				"https://swapi.dev/api/films/1/"
+			],
+			"species": [],
+			"vehicles": [],
+			"starships": [
+				"https://swapi.dev/api/starships/12/"
+			],
+			"created": "2014-12-10T15:59:50.509000Z",
+			"edited": "2014-12-20T21:17:50.323000Z",
+			"url": "https://swapi.dev/api/people/9/"
+		},
+		{
+			"name": "Obi-Wan Kenobi",
+			"height": "182",
+			"mass": "77",
+			"hair_color": "auburn, white",
+			"skin_color": "fair",
+			"eye_color": "blue-gray",
+			"birth_year": "57BBY",
+			"gender": "male",
+			"homeworld": "https://swapi.dev/api/planets/20/",
+			"films": [
+				"https://swapi.dev/api/films/1/",
+				"https://swapi.dev/api/films/2/",
+				"https://swapi.dev/api/films/3/",
+				"https://swapi.dev/api/films/4/",
+				"https://swapi.dev/api/films/5/",
+				"https://swapi.dev/api/films/6/"
+			],
+			"species": [],
+			"vehicles": [
+				"https://swapi.dev/api/vehicles/38/"
+			],
+			"starships": [
+				"https://swapi.dev/api/starships/48/",
+				"https://swapi.dev/api/starships/59/",
+				"https://swapi.dev/api/starships/64/",
+				"https://swapi.dev/api/starships/65/",
+				"https://swapi.dev/api/starships/74/"
+			],
+			"created": "2014-12-10T16:16:29.192000Z",
+			"edited": "2014-12-20T21:17:50.325000Z",
+			"url": "https://swapi.dev/api/people/10/"
+		}
+	]
 
-  // Defino una variable para acumular cada iteracion del array
+  // recorro un array con el método .map()
+  // characters.map(() => 'hola')
+  // console.log(characters.map((item, index) => item.name));
+
+  // Creo una variable para acumular los elementos HTML
   let listHTML = ''
-  // Renderizar todos elementos de la rockStars, cada uno en un li
-  // Sintaxis: condición ? expr1xVerdadero : expr2xFalso
-  rockStars.map((item) => {
+  characters.map((item, index) => {
+    // Agrego texto a mi listHTML utilizando Template Literal
+    // Esto me permite ener un texto multilinea, 
+    // ademas agregar expresiones de js mediante ${}
     listHTML += `
-      <li key=${item.id} class="list-group-item d-flex justify-content-between">
-        <div>${item.name} - ${item.title}</div>
-        <div>
-          ${item.completed ? `
-              <span class="mx-1"><i class="far fa-check-circle text-success"></i></span>
-            ` : `
-              <span class="mx-1"><i class="far fa-times-circle text-danger"></i></span>
-            `}
-          <span class="mx-1"><i class="fas fa-trash-alt text-danger"></i></span>
+      <div class="card" style="width: 18rem;">
+        <img src="https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${item.name}</h5>
         </div>
-      </li>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Height: ${item.height}</li>
+          <li class="list-group-item">Mass: ${item.mass}</li>
+          <li class="list-group-item">Birth year: ${item.birth_year}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
     `
+    console.log(listHTML);
   })
 
-  // Rendizar la lista en el html
-  // 1. Capturar el elemento html
-  // 2. Cambiar el contenido (innnerHTML)
-  const listStart = document.querySelector('#artist')
-  listStart.innerHTML = listHTML;
+  // Capturar un elemento HTML
+  let lista = document.querySelector('#character-list')
+  lista.innerHTML = listHTML
 
-  // console.log(rockStars);
+  let palos = ['♦', '♥', '♠',  '♣']
+  console.log(palos);
+  
 };
