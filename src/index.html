@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"/>
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
-  <body>
-    <div class="container-fluid text-center bg-light">
-      <h1 class="mt-2">JavaScript</h1>
-      <h2 class="text-success">Repaso</h2>
-      <div class="container" id="character-list"></div>
+  <body class="bg-success">
+    <div class="container-fluid text-center">
+      <h1 class="text-light">Random Card Generator</h1>
+      <div class="d-flex justify-content-center">
+        <div class="col-4 col-sm-6 col-md-3 bg-light mt-3">
+          <div id="up" class="d-flex display-5 mb-5 ms-3">♥</div>
+          <div class="my-5"><h1 id="numbers" class="display-5">7</h1></div>
+          <div id="down" class="d-flex display-5 me-3" style="transform: rotate(180deg);">♥</div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
