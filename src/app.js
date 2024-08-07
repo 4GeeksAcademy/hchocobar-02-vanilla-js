@@ -6,89 +6,69 @@ import "./assets/img/4geeks.ico";
 
 
 window.onload = function () {
-  // Excuse Generator
-  let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
-  let action = ['ate', 'peed', 'crushed', 'broke', 'look'];
-  let what = ['my homework', 'my phone', 'the car'];
-  let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
-
-  // Generar los índices aleatorios para cada array
-  let indexWho = Math.floor(Math.random() * who.length)
-  let indexAction = Math.floor(Math.random() * action.length)
-  let indexWhat = Math.floor(Math.random() * what.length)
-  let indexWhen = Math.floor(Math.random() * when.length)
-  
-  // Con concatenación
-  let textConcatenado = who[indexWho] + ' ' + action[indexAction] + ' ' + what[indexWhat] + ' ' + when[indexWhen]
-
-  // Con template literal
-  let textTemplateLiteral = `
-    <div class="alert alert-success" role="alert">
-      My excuse is: ${who[indexWho]} ${action[indexAction]} ${what[indexWhat]} ${when[indexWhen]}
-    </div>
+  let condicion = false;
+  let inputHTML = `
+    <span class="input-group-text">Password</span>
+      <input type=${condicion ? "password" : 'text'} class="form-control" aria-label="Amount (to the nearest dollar)">
+      <span class="input-group-text">
+        ${condicion ? 
+          '<i class="far fa-eye text-primary"></i>' 
+        : 
+          '<i class="far fa-eye-slash text-success"></i>'
+        }
+    </span>
   `
-  // Capturamos el div e insertamos el HTML
-  document.querySelector('#excuse').innerHTML = textTemplateLiteral;
 
-  /* Domain Name Generator */
-  let pronoun = ['the', 'our'];
-  let adj = ['great', 'big'];
-  let noun = ['jogger', 'racoon'];
+  let loginHTML = `
+    <form class="row g-3">
+      <div class="col-auto ${condicion ? 'text-primary' : 'text-danger'}">
+        <p>${!condicion ? 'Estoy logueado' : 'No estoy logueado'}</p>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">${condicion ? 'Login' : 'Logout'}</button>
+      </div>
+    </form>
+  `
 
-  // For loop
-  let textForLoop = ''
-  for (let index = 0; index < pronoun.length; index++) {
-    for (let i = 0; i < adj.length; i++) {
-      for (let j = 0; j < noun.length; j++) {
-        textForLoop += `<li class="list-group-item">${pronoun[index]}${adj[i]}${noun[j]}.com</li>`
-      }
-    }
+  let homeHTML = `
+  ${ condicion ?
+    `
+    <div class="px-4 py-5 my-5 text-center">
+      <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <h1 class="display-5 fw-bold text-body-emphasis">Centered hero</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+        </div>
+      </div>
+    </div>
+    `
+    :
+    `
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    `
+
   }
-
-  // For in (con el índice del elemento)
-  let textForIn = ''
-  for (const i in pronoun) {
-    for (const j in adj) {
-      for (const q in noun) {
-        textForIn += `<li class="list-group-item">${pronoun[i]}${adj[j]}${noun[q]}.net</li>`
-      }
-    }
-  }
-      
-
-  // For of (con el valor del elemento)
-  let textForOf = ''
-  for (const elementPronoun of pronoun) {
-    for (const elementAdj of adj) {
-      for (const elementNoun of noun) {
-        textForOf += `
-          <li class="list-group-item">
-            ${elementPronoun}${elementAdj}${elementNoun}.es
-          </li>`
-      }
-    }
-  }
-
-  // Método .map()
-  let textForMap = ''
-  pronoun.map((elementPronoun) => {
-    adj.map((elementAdj) => {
-      noun.map((elementNoun) => {
-        textForMap += `
-          <li class="list-group-item">
-            ${elementPronoun}${elementAdj}${elementNoun}.io
-          </li>
-        ` 
-      })
-    })
-  })
-
-
-  // Capturo
-  document.querySelector('#for-loop').innerHTML = textForLoop;
-  document.querySelector('#for-in').innerHTML = textForIn;
-  document.querySelector('#for-of').innerHTML = textForOf;
-  document.querySelector('#for-map').innerHTML = textForMap;
-
-
+  `
+  
+  document.querySelector('#password').innerHTML = inputHTML;
+  document.querySelector('#login').innerHTML = loginHTML;
+  document.querySelector('#home').innerHTML = homeHTML;
 };
