@@ -5,31 +5,23 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 
-window.onload = function() {
-  let palos = ['♦', '♥', '♠',  '♣']
-	let numeros = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-  
-	let indexPalos = Math.floor(Math.random() * palos.length)
-	let indexNumeros = Math.floor(Math.random() * numeros.length)
-	
-	// expresión
-	//                                   condición    ?   'por verdadero'  :   'por falso' 
-	// let clasePalos = palos[indexPalos] == '♦' || palos[indexPalos] == '♥' ? ' text-danger' : ' text-dark'
+const newCard = () => {
+  let suits = ['♦', '♥', '♠',  '♣']
+  let numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+  // Generamos indices aleaatoris
+  let indexSuits = Math.floor(Math.random() * suits.length)
+  let indexNumbers = Math.floor(Math.random() * numbers.length)
+  // Mostramos Numbers y Suits
+  document.querySelector('#up').innerHTML = suits[indexSuits];
+  document.querySelector('#numbers').innerHTML = numbers[indexNumbers];
+  document.querySelector('#down').innerHTML = suits[indexSuits];
+  // Secuencia de instrucciones
+  let currentClass = suits[indexSuits] == '♦' || suits[indexSuits] == '♥' ? ' text-danger' : 'text-dark';
+  document.querySelector('#up').className = currentClass;
+  document.querySelector('#numbers').className = currentClass;
+  document.querySelector('#down').className = currentClass;
+}
 
-	// secuencia de instrucciones
-	let clasePalos = ''
-	if (palos[indexPalos] == '♦' || palos[indexPalos] == '♥') {
-		clasePalos = ' text-danger'
-	} else {
-		clasePalos = ' text-dark'
-	}
-
-	// Capturamos el elemento	
-	document.querySelector('#up').innerHTML = palos[indexPalos];
-	document.querySelector('#numbers').innerHTML = numeros[indexNumeros];
-	document.querySelector('#down').innerHTML = palos[indexPalos];
-
-	document.querySelector('#up').className += clasePalos;
-	document.querySelector('#numbers').className += clasePalos;
-	document.querySelector('#down').className += clasePalos;
-};
+window.onload = function() { newCard(); };
+document.querySelector('#new-card').addEventListener('click', () => {newCard();});
+setInterval(() => newCard(), 5000);
