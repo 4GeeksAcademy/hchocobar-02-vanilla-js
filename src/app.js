@@ -4,26 +4,64 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-function newCard() {
-  let suite = ['♦', '♥', '♠', '♣']
-  let numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-  // Generamos los aleatorios
-  let indexSuite = Math.floor(Math.random() * suite.length);
-  let indexNumbers = Math.floor(Math.random() * numbers.length);
-  // Cambiar el innerHTML correspondiente
-  document.querySelector('#top').innerHTML = suite[indexSuite];
-  document.querySelector('#number').innerHTML = numbers[indexNumbers];
-  document.querySelector('#end').innerHTML = suite[indexSuite];
-  // Calcular si la clase de suit será roja o negra
-  let suiteColor = suite[indexSuite] == '♦' || suite[indexSuite] == '♥' ? 'text-danger' : 'text-dark'
-  // Cambiamos la clase de las suites
-  document.querySelector('#top').className = suiteColor
-  document.querySelector('#end').className = suiteColor
-  // document.querySelector('#number').className = suiteColor
-}
+
+window.onload = function () {
+  let students = [
+  {
+    name: 'Jane',
+    id: 10,
+    age: 35,
+    lastname: 'Doe',
+    sports: ['futbol', 'running', 'atletismo']
+  },
+  {
+    name: 'Antonia',
+    id: 11,
+    age: 27,
+    lastname: 'Alvarez',
+    sports: ['tennis', 'baloncesto', 'voleyball', 'natación']
+  },
+  {
+    name: 'Carolina',
+    id: 12,
+    age: 10,
+    lastname: 'Arias',
+    sports: ['rugby', 'besisball']
+  },
+  {
+    name: 'Betty',
+    id: 13,
+    age: 8,
+    lastname: 'Arevalo',
+    sports: ['hockey', 'voleyball']
+  }
+  ];
+  
+
+  let cardHTML = ``
+
+  students.map((item) => {
+    cardHTML += `
+      <div key=${item.id} class="col">
+        <div class="card ${item.id % 2 == 0 ? 'alert-warning' : 'alert-primary'}">
+          <img src="https://randomuser.me/api/portraits/women/${item.id}.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${item.name} ${item.lastname}</h5>
+            <ul class="list-group">
+              ${item.sports.map((sport, index) => 
+                `<li key=${index} class="list-group-item">${sport}</li>`
+              ).join('')}
+            </ul>
+            <a href="#" class="btn mt-2  ${item.id % 2 == 0 ? 'btn-warning' : 'btn-primary'}">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    `
+  })
 
 
-window.onload = function () { newCard() };
-document.querySelector('#newCard').addEventListener('click', newCard)
-setInterval(newCard, 5000)
+
+  document.querySelector('#students').innerHTML = cardHTML
+
+};
 
