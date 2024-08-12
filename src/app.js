@@ -9,31 +9,43 @@ window.onload = function () {
   let students = [
   {
     name: 'Jane',
-    id: 10,
+    id: 75,
     age: 35,
     lastname: 'Doe',
-    sports: ['futbol', 'running', 'atletismo']
+    role: 'Technical Writer',
+    sports: ['soccer', 'running', 'tennis', 'swimming']
   },
   {
     name: 'Antonia',
-    id: 11,
+    id: 76,
     age: 27,
     lastname: 'Alvarez',
-    sports: ['tennis', 'baloncesto', 'voleyball', 'natación']
+    role: 'Industrial Engineer',
+    sports: ['tennis', 'voleyball', 'paddle']
   },
   {
-    name: 'Carolina',
-    id: 12,
+    name: 'Victoria',
+    id: 87,
     age: 10,
     lastname: 'Arias',
-    sports: ['rugby', 'besisball']
+    role: 'Administrative Assistant',
+    sports: ['climbing', 'skating', 'surfing']
   },
   {
     name: 'Betty',
-    id: 13,
+    id: 88,
     age: 8,
     lastname: 'Arevalo',
-    sports: ['hockey', 'voleyball']
+    role: 'Data Science Teacher',
+    sports: ['hockey', 'volleyball', 'athletics', 'soccer']
+  },
+  {
+    name: 'Irene',
+    id: 79,
+    age: 8,
+    lastname: 'García',
+    role: 'Web Developer',
+    sports: ['skiing', 'diving', 'golf']
   }
   ];
   
@@ -47,7 +59,9 @@ window.onload = function () {
           <img src="https://randomuser.me/api/portraits/women/${item.id}.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">${item.name} ${item.lastname}</h5>
+            <p class="card-text">${item.role}</p>
             <ul class="list-group">
+              <li class="list-group-item active">Sports</li>
               ${item.sports.map((sport, index) => 
                 `<li key=${index} class="list-group-item">${sport}</li>`
               ).join('')}
