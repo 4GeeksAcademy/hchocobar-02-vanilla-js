@@ -42,14 +42,29 @@ window.onload = function () {
       street: 'Ejido'
     }
   };
-
-  const students = [person1, person2, person3]
   
-  students.map((element, index) => console.log(
-    'Apellido: ', element.lastname,
-    'edad: ', element.age)
-  )
+  const students = [person1, person2, person3]
 
-  console.log(students);
-  // console.log(students[0].name, students[1].name, students[2].name)
+  /* Capturar el elemento HTML */
+  const tag = document.querySelector('#list-students')
+  console.log(tag.innerHTML)
+
+  /* Crear una variable para asignar el html generado desd JS */
+  let liHTML = ''
+  students.map((iterator, index) => {
+    console.log(iterator.name);
+    liHTML += `
+      <li class="list-group-item d-flex justify-content-between">
+        ${iterator.name} ${iterator.lastname} tiene ${iterator.age} años
+        <span class="text-danger"><i class="fas fa-edit"></i></span>
+      </li>`
+    console.log(liHTML)
+
+  })
+
+  
+  tag.innerHTML = liHTML;
 };
+
+// liHTML += '<li class="list-group-item">' + iterator.name + ' ' + iterator.lastname + ' tiene ' + iterator.age + ' años</li>'
+// liHTML += `<li class="list-group-item">${iterator.name} ${iterator.lastname} tiene ${iterator.age} años</li>`
