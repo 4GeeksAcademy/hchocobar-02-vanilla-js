@@ -9,148 +9,297 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function () {
   // Write your code here
-  let viewPassword = true;
-  let isLoged = true;
-
-  let loginHTML = `
-    <h2 class="text-primary">${isLoged ? 'Dashboard' : 'Login'}</h2>
-
-    <div class=${isLoged ? 'd-none' : ''}>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Email</span>
-        <input type="email" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-      </div>
-      
-      <div class="input-group mb-3">
-        <input type=${viewPassword ? "text" : 'password'} class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <span class="input-group-text" id="basic-addon2">
-          ${viewPassword ? 
-            '<i class="fas fa-eye-slash text-danger"></i>'
-            : 
-            '<i class="fas fa-eye text-primary"></i>'
-          }
-        </span>
-      </div>
-    </div>
-
-    <button type="button" class="btn btn-primary">
-      ${isLoged ? 'Logout' : 'Login'}
-    </button>
-
-    <div class=${isLoged ? "row row-cols-1 row-cols-md-3 mb-3 text-center" : 'd-none'}>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Free</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Pro</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$15<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Enterprise</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <h2 class=${isLoged ? "display-6 text-center mb-4" : 'd-none'}>Compare plans</h2>
-
-    <div class=${isLoged ? "table-responsive" : 'd-none'}>
-    
-      <table class="table text-center">
-        <thead>
-          <tr>
-            <th style="width: 34%;"></th>
-            <th style="width: 22%;">Free</th>
-            <th style="width: 22%;">Pro</th>
-            <th style="width: 22%;">Enterprise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">Public</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Private</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">Permissions</th>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Sharing</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Unlimited members</th>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">Extra security</th>
-            <td></td>
-            <td></td>
-            <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  `
+  const characters = [
+    {
+        "name": "Luke Skywalker", 
+        "height": "172", 
+        "mass": "77", 
+        "hair_color": "blond", 
+        "skin_color": "fair", 
+        "eye_color": "blue", 
+        "birth_year": "19BBY", 
+        "gender": "male", 
+        "homeworld": "https://swapi.dev/api/planets/1/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/2/", 
+            "https://swapi.dev/api/films/3/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [], 
+        "vehicles": [
+            "https://swapi.dev/api/vehicles/14/", 
+            "https://swapi.dev/api/vehicles/30/"
+        ], 
+        "starships": [
+            "https://swapi.dev/api/starships/12/", 
+            "https://swapi.dev/api/starships/22/"
+        ], 
+        "created": "2014-12-09T13:50:51.644000Z", 
+        "edited": "2014-12-20T21:17:56.891000Z", 
+        "url": "https://swapi.dev/api/people/1/"
+    }, 
+    {
+        "name": "C-3PO", 
+        "height": "167", 
+        "mass": "75", 
+        "hair_color": "n/a", 
+        "skin_color": "gold", 
+        "eye_color": "yellow", 
+        "birth_year": "112BBY", 
+        "gender": "n/a", 
+        "homeworld": "https://swapi.dev/api/planets/1/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/2/", 
+            "https://swapi.dev/api/films/3/", 
+            "https://swapi.dev/api/films/4/", 
+            "https://swapi.dev/api/films/5/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [
+            "https://swapi.dev/api/species/2/"
+        ], 
+        "vehicles": [], 
+        "starships": [], 
+        "created": "2014-12-10T15:10:51.357000Z", 
+        "edited": "2014-12-20T21:17:50.309000Z", 
+        "url": "https://swapi.dev/api/people/2/"
+    }, 
+    {
+        "name": "R2-D2", 
+        "height": "96", 
+        "mass": "32", 
+        "hair_color": "n/a", 
+        "skin_color": "white, blue", 
+        "eye_color": "red", 
+        "birth_year": "33BBY", 
+        "gender": "n/a", 
+        "homeworld": "https://swapi.dev/api/planets/8/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/2/", 
+            "https://swapi.dev/api/films/3/", 
+            "https://swapi.dev/api/films/4/", 
+            "https://swapi.dev/api/films/5/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [
+            "https://swapi.dev/api/species/2/"
+        ], 
+        "vehicles": [], 
+        "starships": [], 
+        "created": "2014-12-10T15:11:50.376000Z", 
+        "edited": "2014-12-20T21:17:50.311000Z", 
+        "url": "https://swapi.dev/api/people/3/"
+    }, 
+    {
+        "name": "Darth Vader", 
+        "height": "202", 
+        "mass": "136", 
+        "hair_color": "none", 
+        "skin_color": "white", 
+        "eye_color": "yellow", 
+        "birth_year": "41.9BBY", 
+        "gender": "male", 
+        "homeworld": "https://swapi.dev/api/planets/1/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/2/", 
+            "https://swapi.dev/api/films/3/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [], 
+        "vehicles": [], 
+        "starships": [
+            "https://swapi.dev/api/starships/13/"
+        ], 
+        "created": "2014-12-10T15:18:20.704000Z", 
+        "edited": "2014-12-20T21:17:50.313000Z", 
+        "url": "https://swapi.dev/api/people/4/"
+    }, 
+    {
+        "name": "Leia Organa", 
+        "height": "150", 
+        "mass": "49", 
+        "hair_color": "brown", 
+        "skin_color": "light", 
+        "eye_color": "brown", 
+        "birth_year": "19BBY", 
+        "gender": "female", 
+        "homeworld": "https://swapi.dev/api/planets/2/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/2/", 
+            "https://swapi.dev/api/films/3/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [], 
+        "vehicles": [
+            "https://swapi.dev/api/vehicles/30/"
+        ], 
+        "starships": [], 
+        "created": "2014-12-10T15:20:09.791000Z", 
+        "edited": "2014-12-20T21:17:50.315000Z", 
+        "url": "https://swapi.dev/api/people/5/"
+    }, 
+    {
+        "name": "Owen Lars", 
+        "height": "178", 
+        "mass": "120", 
+        "hair_color": "brown, grey", 
+        "skin_color": "light", 
+        "eye_color": "blue", 
+        "birth_year": "52BBY", 
+        "gender": "male", 
+        "homeworld": "https://swapi.dev/api/planets/1/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/5/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [], 
+        "vehicles": [], 
+        "starships": [], 
+        "created": "2014-12-10T15:52:14.024000Z", 
+        "edited": "2014-12-20T21:17:50.317000Z", 
+        "url": "https://swapi.dev/api/people/6/"
+    }, 
+    {
+        "name": "Beru Whitesun lars", 
+        "height": "165", 
+        "mass": "75", 
+        "hair_color": "brown", 
+        "skin_color": "light", 
+        "eye_color": "blue", 
+        "birth_year": "47BBY", 
+        "gender": "female", 
+        "homeworld": "https://swapi.dev/api/planets/1/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/5/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [], 
+        "vehicles": [], 
+        "starships": [], 
+        "created": "2014-12-10T15:53:41.121000Z", 
+        "edited": "2014-12-20T21:17:50.319000Z", 
+        "url": "https://swapi.dev/api/people/7/"
+    }, 
+    {
+        "name": "R5-D4", 
+        "height": "97", 
+        "mass": "32", 
+        "hair_color": "n/a", 
+        "skin_color": "white, red", 
+        "eye_color": "red", 
+        "birth_year": "unknown", 
+        "gender": "n/a", 
+        "homeworld": "https://swapi.dev/api/planets/1/", 
+        "films": [
+            "https://swapi.dev/api/films/1/"
+        ], 
+        "species": [
+            "https://swapi.dev/api/species/2/"
+        ], 
+        "vehicles": [], 
+        "starships": [], 
+        "created": "2014-12-10T15:57:50.959000Z", 
+        "edited": "2014-12-20T21:17:50.321000Z", 
+        "url": "https://swapi.dev/api/people/8/"
+    }, 
+    {
+        "name": "Biggs Darklighter", 
+        "height": "183", 
+        "mass": "84", 
+        "hair_color": "black", 
+        "skin_color": "light", 
+        "eye_color": "brown", 
+        "birth_year": "24BBY", 
+        "gender": "male", 
+        "homeworld": "https://swapi.dev/api/planets/1/", 
+        "films": [
+            "https://swapi.dev/api/films/1/"
+        ], 
+        "species": [], 
+        "vehicles": [], 
+        "starships": [
+            "https://swapi.dev/api/starships/12/"
+        ], 
+        "created": "2014-12-10T15:59:50.509000Z", 
+        "edited": "2014-12-20T21:17:50.323000Z", 
+        "url": "https://swapi.dev/api/people/9/"
+    }, 
+    {
+        "name": "Obi-Wan Kenobi", 
+        "height": "182", 
+        "mass": "77", 
+        "hair_color": "auburn, white", 
+        "skin_color": "fair", 
+        "eye_color": "blue-gray", 
+        "birth_year": "57BBY", 
+        "gender": "male", 
+        "homeworld": "https://swapi.dev/api/planets/20/", 
+        "films": [
+            "https://swapi.dev/api/films/1/", 
+            "https://swapi.dev/api/films/2/", 
+            "https://swapi.dev/api/films/3/", 
+            "https://swapi.dev/api/films/4/", 
+            "https://swapi.dev/api/films/5/", 
+            "https://swapi.dev/api/films/6/"
+        ], 
+        "species": [], 
+        "vehicles": [
+            "https://swapi.dev/api/vehicles/38/"
+        ], 
+        "starships": [
+            "https://swapi.dev/api/starships/48/", 
+            "https://swapi.dev/api/starships/59/", 
+            "https://swapi.dev/api/starships/64/", 
+            "https://swapi.dev/api/starships/65/", 
+            "https://swapi.dev/api/starships/74/"
+        ], 
+        "created": "2014-12-10T16:16:29.192000Z", 
+        "edited": "2014-12-20T21:17:50.325000Z", 
+        "url": "https://swapi.dev/api/people/10/"
+    }
+  ]
   
+  console.log(characters)
+  let textHTML = '<h2>Cards</h2>'
+  textHTML += '<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">'
+
+
+  characters.map((iterator, index) => {
+    // console.log(index, iterator.name);
+    textHTML += `
+      <div key=${index} class="col">
+        <div key=${index} class="card" style="width: 18rem;">
+          <img src="https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-primary">${iterator.name}</h5>
+            <p class="card-text text-danger">${iterator.url}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            ${iterator.films.map((film, i) => {
+              return `<li class="list-group-item  bg-warning">${i+1} - ${film}</li>`
+            }).join('')}
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+    `
+  })
+
+  textHTML += '</div>'
+   
   // Capturo los elementos html
-  document.querySelector('#login').innerHTML = loginHTML;
+  document.querySelector('#characters').innerHTML = textHTML;
+
 
 
 };
