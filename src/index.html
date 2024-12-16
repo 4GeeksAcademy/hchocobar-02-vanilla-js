@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hello Rigo with Vanilla.js</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
   <link rel="shortcut icon" href="./4geeks.ico" />
 </head>
+
 <body>
   <div class="container-fluid text-center">
-    <h1 class="mt-5">Intro JavaScript</h1>
-    <p class="alert alert-warning mt-4">Renderizando HTML desde JS</p>
+    <h1 class="mt-5">Time to Code</h1>
+    <p class="alert alert-warning mt-4">Proyectos</p>
 
-    <!-- Renderizando Listas -->
-    <div class="row">
-      <h2 class="text-success">List Users</h2>
-      <div class="mx-auto col-sm-8 col-md-6 col-lg-4">
-        <ul class="list-group" id="list"></ul>
+    <div class="alert alert-success" id="excuse"></div>
+
+    <div class="row d-flex justify-content-between">
+      <div class="col mt-2">
+        <h2 class="text-primary">For loop</h2>
+        <ul class="list-group" id="for-loop"></ul>
+      </div>
+      <div class="col mt-2">
+        <h2 class="text-success">For in</h2>
+        <ul class="list-group" id="for-in"></ul>
+      </div>
+      <div class="col mt-2">
+
+        <h2 class="text-warning">For of</h2>
+        <ul class="list-group" id="for-of"></ul>
+      </div>
+      <div class="col mt-2">
+        <h2 class="text-danger">.map()</h2>
+        <ul class="list-group" id="map"></ul>
       </div>
     </div>
+  </div>
 
-    <!-- Renderizando Cards -->
-    <h2 class="text-primary">Cards</h2>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5" id="card">
-    </div>
-
-    <!-- Footer -->
-    <div class="mt-4 p-4 alert alert-danger">
-      <span>Made with ❤️ by </span>
-      <a class="link-danger" href="https://www.4geeksacademy.com" target="_blank">4Geeks Academy</a>
-      <span> & </span>
-      <a class="link-danger" href="http://chocobar.net" target="_blank" rel="noopener noreferrer">Héctor</a>
-      <span> for cohorte <strong>Spain-93</strong></span>
-    </div>
+  <!-- Footer -->
+  <div class="mt-4 p-4 alert alert-danger">
+    <span>Made with ❤️ by </span>
+    <a class="link-danger" href="https://www.4geeksacademy.com" target="_blank">4Geeks Academy</a>
+    <span> & </span>
+    <a class="link-danger" href="http://chocobar.net" target="_blank" rel="noopener noreferrer">Héctor</a>
+    <span> for cohorte <strong>Spain-93</strong></span>
+  </div>
   </div>
 </body>
+
 </html>
