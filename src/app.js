@@ -7,7 +7,7 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function () {
   /* Generador de Excusas */
-  // inicializo la variable que mostraré en la excusa
+  // Inicializo la variable que mostraré en la excusa
   let myExcuse = '';
   // Arrays con las partes de las escusas
   let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
@@ -22,63 +22,57 @@ window.onload = function () {
   // Genero el texto de la excusa
   myExcuse = `${who[indexWho]} ${action[indexAction]} ${what[indexWhat]} ${when[indexWhen]}`
   // Capturar el div excuse
-  document.querySelector('#excuse').innerHTML = myExcuse;
-
+  document.querySelector('#excuse').innerHTML = myExcuse;0
 
 
   /* Generador de Dominios */
   let pronoun = ['the', 'our'];
-  let adj = ['great', 'big'];
+  let adjective = ['great', 'big'];
   let noun = ['jogger', 'racoon'];
-
   // for loop
   let listForLoop = ''
   for (let index = 0; index < pronoun.length; index++) {
-    for (let indexAdj = 0; indexAdj < adj.length; indexAdj++) {
+    for (let indexAdjective = 0; indexAdjective < adjective.length; indexAdjective++) {
       for (let indexNoun = 0; indexNoun < noun.length; indexNoun++) {
         listForLoop += `
           <li class="list-group-item">
-            ${pronoun[index]}${adj[indexAdj]}${noun[indexNoun]}
+            ${pronoun[index]}${adj[indexAdjective]}${noun[indexNoun]}
           </li>`
       }
     }
   }
-
   // for in -> devuelve el indice
   let listForIn = '';
   for (const keyPronoun in pronoun) {
-    for (const keyAdj in adj) {
+    for (const keyAdjective in adjective) {
       for (const keyNoun in noun) {
         listForIn += `
           <li class="list-group-item">
-            ${pronoun[keyPronoun]}${adj[keyAdj]}${noun[keyNoun]}.com
+            ${pronoun[keyPronoun]}${adj[keyAdjective]}${noun[keyNoun]}.com
           </li>
         `
       }
     }
   }
-
-
   // for of -> devuelve el valor
   let listForOf = '';
   for (const elementPronoun of pronoun) {
-    for (const elementAdj of adj) {
+    for (const elemetAdjective of adj) {
       for (const elementNoun of noun) {
         listForOf += `
           <li class="list-group-item">
-            ${elementPronoun}${elementAdj}${elementNoun}.es
+            ${elementPronoun}${elemetAdjective}${elementNoun}.es
           </li>
           `
       }
     }
   }
 
-
-  // mapeamos: método .map() de los arrays
+  // Mapeamos: método .map() de los arrays
   let listMap = '';
   pronoun.map((itemPronoun) => {
     let domain = '.net'
-    adj.map((itemAdj) => {
+    adjective.map((itemAdj) => {
       noun.map((itemNoun) => {
         listMap += `
          <li class="list-group-item">
@@ -89,7 +83,7 @@ window.onload = function () {
     })
   })
 
-  // capturamos los div
+  // Capturamos los div
   document.querySelector('#for-loop').innerHTML = listForLoop;
   document.querySelector('#for-in').innerHTML = listForIn;
   document.querySelector('#for-of').innerHTML = listForOf;
