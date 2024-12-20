@@ -6,86 +6,46 @@ import "./assets/img/4geeks.ico";
 
 
 window.onload = function () {
-  /* Generador de Excusas */
-  // Inicializo la variable que mostraré en la excusa
-  let myExcuse = '';
-  // Arrays con las partes de las escusas
-  let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
-  let action = ['ate', 'peed', 'crushed', 'broke'];
-  let what = ['my homework', 'my phone', 'the car'];
-  let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
-  // Generamos indices aleatorios
-  let indexWho = Math.floor(Math.random() * who.length)
-  let indexAction = Math.floor(Math.random() * action.length)
-  let indexWhat = Math.floor(Math.random() * what.length)
-  let indexWhen = Math.floor(Math.random() * when.length)
-  // Genero el texto de la excusa
-  myExcuse = `${who[indexWho]} ${action[indexAction]} ${what[indexWhat]} ${when[indexWhen]}`
-  // Capturar el div excuse
-  document.querySelector('#excuse').innerHTML = myExcuse;0
+  /* Renderizado Condicional */
+  // Sintaxis: condición ? expr1 : expr2
+  let viewPassword = false;
+  let isLogged = false;
 
+  let menu = `
+    <button class="btn btn-outline-${ isLogged ? "secondary" : "success"}">
+      ${isLogged ? 'Logout' : 'Login'}
+    </button>
+  `
 
-  /* Generador de Dominios */
-  let pronoun = ['the', 'our'];
-  let adjective = ['great', 'big'];
-  let noun = ['jogger', 'racoon'];
-  // for loop
-  let listForLoop = ''
-  for (let index = 0; index < pronoun.length; index++) {
-    for (let indexAdjective = 0; indexAdjective < adjective.length; indexAdjective++) {
-      for (let indexNoun = 0; indexNoun < noun.length; indexNoun++) {
-        listForLoop += `
-          <li class="list-group-item">
-            ${pronoun[index]}${adj[indexAdjective]}${noun[indexNoun]}
-          </li>`
-      }
-    }
-  }
-  // for in -> devuelve el indice
-  let listForIn = '';
-  for (const keyPronoun in pronoun) {
-    for (const keyAdjective in adjective) {
-      for (const keyNoun in noun) {
-        listForIn += `
-          <li class="list-group-item">
-            ${pronoun[keyPronoun]}${adj[keyAdjective]}${noun[keyNoun]}.com
-          </li>
-        `
-      }
-    }
-  }
-  // for of -> devuelve el valor
-  let listForOf = '';
-  for (const elementPronoun of pronoun) {
-    for (const elemetAdjective of adj) {
-      for (const elementNoun of noun) {
-        listForOf += `
-          <li class="list-group-item">
-            ${elementPronoun}${elemetAdjective}${elementNoun}.es
-          </li>
-          `
-      }
-    }
-  }
+  let dashboard = `
+    <div class="alert alert-success mt-4 d-flex justify-content-around">
+        Bienvenido a nuestra aplicación
+    </div>
+  `
 
-  // Mapeamos: método .map() de los arrays
-  let listMap = '';
-  pronoun.map((itemPronoun) => {
-    let domain = '.net'
-    adjective.map((itemAdj) => {
-      noun.map((itemNoun) => {
-        listMap += `
-         <li class="list-group-item">
-           ${itemPronoun}${itemAdj}${itemNoun}${domain}
-         </li>
-        `
-      })
-    })
-  })
+  let formLogin = `
+        <form class="col col-sm-8 col-md-6 col-lg-4 m-auto">
+        <h2>Login</h2>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Email</span>
+          <input type="email" class="form-control" placeholder="Your Email" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+        
+        <div class="input-group mb-3">
+          <input type=${viewPassword ? "text" : 'password'} class="form-control" placeholder="Your password" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <span class="input-group-text" id="basic-addon2">
+            ${viewPassword ?
+              '<i class="fas fa-eye-slash text-danger"></i>'
+              :
+              '<i class="fas fa-eye text-primary"></i>'
+            }
+          </span>
+        </div>
+      </form>
+    `
 
   // Capturamos los div
-  document.querySelector('#for-loop').innerHTML = listForLoop;
-  document.querySelector('#for-in').innerHTML = listForIn;
-  document.querySelector('#for-of').innerHTML = listForOf;
-  document.querySelector('#map').innerHTML = listMap
+  document.querySelector('#btn-login').innerHTML = menu;
+  document.querySelector('#dashboard').innerHTML = isLogged ? dashboard : '';
+  document.querySelector('#login').innerHTML = isLogged ? '' : formLogin;
 };
