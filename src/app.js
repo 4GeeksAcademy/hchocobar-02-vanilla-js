@@ -4,6 +4,9 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+function handleLogin() {
+  console.log('click login')
+}
 
 window.onload = function () {
   /* Renderizado Condicional */
@@ -45,7 +48,7 @@ window.onload = function () {
     `
 
   // Capturamos los div
-  document.querySelector('#btn-login').innerHTML = menu;
+  // document.querySelector('#btn-login').innerHTML = menu;
   document.querySelector('#dashboard').innerHTML = isLogged ? dashboard : '';
   document.querySelector('#login').innerHTML = isLogged ? '' : formLogin;
 };
