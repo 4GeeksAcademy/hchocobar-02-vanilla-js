@@ -12,7 +12,7 @@ window.onload = function () {
   let isLogged = false;
 
   let menu = `
-    <button class="btn btn-outline-${ isLogged ? "secondary" : "success"}">
+    <button class="btn btn-sm btn-outline-${ isLogged ? "secondary" : "success"}">
       ${isLogged ? 'Logout' : 'Login'}
     </button>
   `
