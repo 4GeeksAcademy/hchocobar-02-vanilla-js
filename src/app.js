@@ -4,31 +4,76 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-function cardGenerate() {
-  let suits = ['♦', '♥', '♠',  '♣'];
-  let numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-  // Generación de los indices aleatorios
-  let indexSuits = Math.floor(Math.random() * suits.length)
-  let indexNumbers = Math.floor(Math.random() * numbers.length)
-  // Renderizamos los suits y numbers aleatorios
-  document.querySelector('#top').innerHTML = suits[indexSuits];
-  document.querySelector('#button').innerHTML = suits[indexSuits];
-  document.querySelector('#number').innerHTML = numbers[indexNumbers];
-  // Renderizar condicionalmente el color del palo
-  /* 
-  if (suits[indexSuits] == '♦' || suits[indexSuits] == '♥') {
-    document.querySelector('#top').className = ' text-danger'
-    document.querySelector('#button').className = 'text-danger'
-  } */
-  /* Opción con operador ternario */
-  let isRed = (suits[indexSuits] == '♦' || suits[indexSuits] == '♥')
-  document.querySelector('#top').className = isRed ? 'text-danger' : 'text-dark'
-  document.querySelector('#button').className = isRed ? 'text-danger' : 'text-dark'
-}
-
 window.onload = function () { 
-  cardGenerate() 
-  document.querySelector('#btnNewCard').addEventListener('click', cardGenerate);
-};
+  let students = {
+    register: 4,
+    data: [
+    {
+      name: 'Jane',
+      id: 75,
+      age: 35,
+      lastname: 'Doe',
+      role: 'Technical Writer',
+      sports: ['soccer', 'running', 'tennis', 'swimming']
+    },
+    {
+      name: 'Antonia',
+      id: 76,
+      age: 27,
+      lastname: 'Alvarez',
+      role: 'Industrial Engineer',
+      sports: ['tennis', 'voleyball', 'paddle']
+    },
+    {
+      name: 'Victoria',
+      id: 87,
+      age: 10,
+      lastname: 'Arias',
+      role: 'Administrative Assistant',
+      sports: ['climbing', 'skating', 'surfing']
+    },
+    {
+      name: 'Betty',
+      id: 88,
+      age: 8,
+      lastname: 'Arevalo',
+      role: 'Data Science Teacher',
+      sports: ['hockey', 'volleyball', 'athletics', 'soccer']
+    },
+    {
+      name: 'Irene',
+      id: 79,
+      age: 8,
+      lastname: 'García',
+      role: 'Web Developer',
+      sports: ['skiing', 'diving', 'golf']
+    }
+]};
 
-setInterval(cardGenerate, 1000)
+console.log(students.data);
+
+let htmlStudents = ''
+students.data.map((iterator) => {
+  console.log(iterator.name);
+  htmlStudents += `
+    <div class="card">
+      <img 
+        src="https://randomuser.me/api/portraits/women/${iterator.id}.jpg"
+        class="card-img-top" alt=${iterator.name}
+      >
+      <div class="card-body">
+        <h5 class="card-title">${iterator.name} ${iterator.lastname}</h5>
+        <p class="card-text">${iterator.role}</p>
+        <ul class="list-group">
+          ${iterator.sports.map((sport) => 
+            `<li class="list-group-item">${sport}</li>`
+          ).join('')}
+        </ul>
+      </div>
+    </div>
+  `
+  });
+
+  document.querySelector('#students').innerHTML = htmlStudents;
+
+};
