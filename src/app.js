@@ -4,51 +4,31 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-function handleLogin() {
-  console.log('click login')
+function cardGenerate() {
+  let suits = ['♦', '♥', '♠',  '♣'];
+  let numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+  // Generación de los indices aleatorios
+  let indexSuits = Math.floor(Math.random() * suits.length)
+  let indexNumbers = Math.floor(Math.random() * numbers.length)
+  // Renderizamos los suits y numbers aleatorios
+  document.querySelector('#top').innerHTML = suits[indexSuits];
+  document.querySelector('#button').innerHTML = suits[indexSuits];
+  document.querySelector('#number').innerHTML = numbers[indexNumbers];
+  // Renderizar condicionalmente el color del palo
+  /* 
+  if (suits[indexSuits] == '♦' || suits[indexSuits] == '♥') {
+    document.querySelector('#top').className = ' text-danger'
+    document.querySelector('#button').className = 'text-danger'
+  } */
+  /* Opción con operador ternario */
+  let isRed = (suits[indexSuits] == '♦' || suits[indexSuits] == '♥')
+  document.querySelector('#top').className = isRed ? 'text-danger' : 'text-dark'
+  document.querySelector('#button').className = isRed ? 'text-danger' : 'text-dark'
 }
 
-window.onload = function () {
-  /* Renderizado Condicional */
-  // Sintaxis: condición ? expr1 : expr2
-  let viewPassword = false;
-  let isLogged = false;
-
-  let menu = `
-    <button class="btn btn-sm btn-outline-${ isLogged ? "secondary" : "success"}">
-      ${isLogged ? 'Logout' : 'Login'}
-    </button>
-  `
-
-  let dashboard = `
-    <div class="alert alert-success mt-4 d-flex justify-content-around">
-        Bienvenido a nuestra aplicación
-    </div>
-  `
-
-  let formLogin = `
-        <form class="col col-sm-8 col-md-6 col-lg-4 m-auto">
-        <h2>Login</h2>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Email</span>
-          <input type="email" class="form-control" placeholder="Your Email" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        
-        <div class="input-group mb-3">
-          <input type=${viewPassword ? "text" : 'password'} class="form-control" placeholder="Your password" aria-label="Recipient's username" aria-describedby="basic-addon2">
-          <span class="input-group-text" id="basic-addon2">
-            ${viewPassword ?
-              '<i class="fas fa-eye-slash text-danger"></i>'
-              :
-              '<i class="fas fa-eye text-primary"></i>'
-            }
-          </span>
-        </div>
-      </form>
-    `
-
-  // Capturamos los div
-  // document.querySelector('#btn-login').innerHTML = menu;
-  document.querySelector('#dashboard').innerHTML = isLogged ? dashboard : '';
-  document.querySelector('#login').innerHTML = isLogged ? '' : formLogin;
+window.onload = function () { 
+  cardGenerate() 
+  document.querySelector('#btnNewCard').addEventListener('click', cardGenerate);
 };
+
+setInterval(cardGenerate, 1000)
